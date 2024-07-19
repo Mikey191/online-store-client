@@ -15,4 +15,5 @@ npm install axios - для того, что бы отправлять запро
 npm install react-router-dom - для постраничной навигации
 npm install mobx - стейт менеджер (менеджер состояний)
 npm install mobx-react-lite - для связи mobx с функциональными компонентами react
+npm install react-bootstrap bootstrap
 ```
