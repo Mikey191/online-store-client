@@ -2,11 +2,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 import { SHOP_ROUTE } from "../utils/consts";
 import { useContext } from "react";
 import { Context } from "..";
 import { observer } from "mobx-react-lite";
+import { NavLink } from "react-router-dom";
 
 const NavBar = observer(() => {
   const { user } = useContext(Context);
