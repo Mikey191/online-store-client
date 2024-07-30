@@ -8,10 +8,14 @@ import { Context } from "..";
 import { observer } from "mobx-react-lite";
 import { NavLink, useNavigate } from "react-router-dom";
 
-
 const NavBar = observer(() => {
   const { user } = useContext(Context);
-  const history = useNavigate()
+  const history = useNavigate();
+  const logOut = () => {
+    console.log("EXIT");
+    user.setUser({});
+    user.setIsAuth(false);
+  };
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -21,13 +25,16 @@ const NavBar = observer(() => {
           </NavLink>
           {user.isAuth ? (
             <Nav className="ml-auto" style={{ color: "white" }}>
-              <Button variant={"outline-light"} onClick={() => history(ADMIN_ROUTE)}>
+              <Button
+                variant={"outline-light"}
+                onClick={() => history(ADMIN_ROUTE)}
+              >
                 Админ панель
               </Button>
               <Button
                 variant={"outline-light"}
                 style={{ marginLeft: "15px" }}
-                onClick={() => history(LOGIN_ROUTE)}
+                onClick={() => logOut()}
               >
                 Выйти
               </Button>
@@ -36,7 +43,7 @@ const NavBar = observer(() => {
             <Nav className="ml-auto" style={{ color: "white" }}>
               <Button
                 variant={"outline-light"}
-                onClick={() => user.setIsAuth(true)}
+                onClick={() => history(LOGIN_ROUTE)}
               >
                 Авторизация
               </Button>
