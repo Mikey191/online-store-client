@@ -22,7 +22,7 @@ const Auth = observer(() => {
       } else {
         data = await registration(email, password);
       }
-      user.setUser(data);
+      user.setUser(user);
       user.setIsAuth(true);
       history(SHOP_ROUTE);
     } catch (error) {
